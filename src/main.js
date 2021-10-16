@@ -5,9 +5,13 @@ import "@/styles/styles.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMoon as farMoon } from "@fortawesome/free-regular-svg-icons";
-import { faMoon as fasMoon } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMoon as fasMoon,
+  faSearch,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(farMoon, fasMoon);
+library.add(farMoon, fasMoon, faSearch, faChevronDown);
 Vue.component("fa-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
