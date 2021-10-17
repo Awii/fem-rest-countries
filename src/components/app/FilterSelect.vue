@@ -20,7 +20,7 @@
     >
       <BarContainer
         v-if="showDropdown"
-        class="mt-1 w-48 origin-top-right transition-all transform duration-300"
+        class="absolute z-10 mt-1 w-48 origin-top-right transition-all transform duration-300"
       >
         <ul class="px-6 py-4 text-sm space-y-1">
           <li v-for="region in regions" :key="region">
