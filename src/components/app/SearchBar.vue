@@ -5,6 +5,8 @@
       class="appearance-none bg-transparent w-full h-full pl-6 text-white focus:outline-none placeholder-white text-sm"
       placeholder="Search for a country..."
       type="text"
+      v-model="input"
+      v-debounce:500ms="handleInput"
     />
   </BarContainer>
 </template>
@@ -15,6 +17,33 @@ import BarContainer from "@/components/BarContainer";
 export default {
   name: "SearchBar",
 
-  components: { BarContainer },
+  components: {
+    BarContainer,
+  },
+
+  data() {
+    return {
+      input: "",
+    };
+  },
+
+  created() {
+    if (this.$route.query.s) {
+      this.input = this.$route.query.s; // set search bar
+      this.handleInput(this.$route.query.s);
+    } else {
+      this.handleInput();
+    }
+
+    this.$root.$on("clear-search", () => {
+      this.input = "";
+    });
+  },
+
+  methods: {
+    handleInput(input) {
+      this.$emit("on-input", input);
+    },
+  },
 };
 </script>

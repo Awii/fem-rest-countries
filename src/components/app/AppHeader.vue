@@ -5,7 +5,7 @@
         to="/"
         class="font-semibold md:text-xl lg:text-2xl p-2 -ml-2"
       >
-        {{ title }}
+        <span @click="goHome">{{ title }}</span>
       </router-link>
 
       <button class="flex flex-row items-center p-2" @click="toggleDarkMode">
@@ -34,6 +34,11 @@ export default {
   methods: {
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode;
+    },
+
+    goHome() {
+      this.$emit("go-home");
+      this.$root.$emit("clear-search");
     },
   },
 };

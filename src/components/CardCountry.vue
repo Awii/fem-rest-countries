@@ -18,7 +18,7 @@
         </p>
         <p v-if="capital">
           <span class="font-semibold">Capital:</span>
-          {{ capital }}
+          {{ capital.join(", ") }}
         </p>
       </div>
     </div>
@@ -47,7 +47,7 @@ export default {
       required: true,
     },
     capital: {
-      type: String,
+      type: Array,
     },
   },
 };

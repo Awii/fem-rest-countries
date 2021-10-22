@@ -5,6 +5,7 @@
         type="button"
         class="w-full h-full text-white text-sm flex flex-row items-center justify-between pl-6 pr-4 outline-none"
         @click="toggleDropdown"
+        @focusout="handleFocusOut"
       >
         <div>Filter by Region</div>
 
@@ -22,11 +23,17 @@
         v-if="showDropdown"
         class="absolute z-10 mt-1 w-48 origin-top-right transition-all transform duration-300"
       >
-        <ul class="px-6 py-4 text-sm space-y-1">
-          <li v-for="region in regions" :key="region">
+        <div class="px-4 py-3 text-sm flex flex-col items-start">
+          <button
+            type="button"
+            v-for="region in regions"
+            :key="region"
+            class="p-1"
+            @click="emitRegion(region, true)"
+          >
             {{ region }}
-          </li>
-        </ul>
+          </button>
+        </div>
       </BarContainer>
     </transition>
   </div>
@@ -43,13 +50,22 @@ export default {
   data() {
     return {
       showDropdown: false,
-      regions: ["Africa", "America", "Asia", "Europe", "Oceania"],
+      regions: ["All", "Africa", "America", "Asia", "Europe", "Oceania"],
     };
   },
 
   methods: {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
+    },
+
+    handleFocusOut() {
+      this.showDropdown = false;
+    },
+
+    emitRegion(region, isRegion) {
+      this.$emit("on-filter", region.toLowerCase(), isRegion);
+      this.$root.$emit("clear-search");
     },
   },
 };

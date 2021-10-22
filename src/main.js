@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import "@/styles/styles.css";
 
+import vueDebounce from "vue-debounce";
+Vue.use(vueDebounce);
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMoon as farMoon } from "@fortawesome/free-regular-svg-icons";
 import {

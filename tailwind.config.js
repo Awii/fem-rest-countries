@@ -27,7 +27,7 @@ module.exports = {
         vw: "10vw",
       },
       gridTemplateColumns: {
-        fill: "repeat(auto-fill, minmax(320px, 1fr))", // max-width including margin
+        fill: "repeat(auto-fill, minmax(330px, 1fr))", // max-width including margin
       },
     },
   },
