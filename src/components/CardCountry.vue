@@ -1,6 +1,6 @@
 <template>
   <div
-    class=" bg-dark-blue filter drop-shadow-md rounded-md overflow-hidden text-white h-auto"
+    class="duration-300 text-black dark:text-white bg-white dark:bg-dark-blue filter drop-shadow-md rounded-md overflow-hidden h-auto"
   >
     <img :src="imgPath" class="w-full object-contain" />
     <div class="px-6 pt-7 pb-9">

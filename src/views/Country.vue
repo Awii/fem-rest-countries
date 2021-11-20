@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen bg-dark-blue-dark">
+  <div
+    class="duration-300 min-h-screen bg-light-gray-very-light dark:bg-dark-blue-dark"
+  >
     <AppHeader />
     <div class="py-12 px-vw">
       <BarContainer class="inline-flex">
@@ -11,7 +13,7 @@
         </button>
       </BarContainer>
       <div
-        class="flex flex-col md:flex-row md:space-x-16 lg:space-x-20 xl:space-x-28 2xl:space-x-36 mt-16 md:mt-20 text-white md:items-center"
+        class="flex flex-col md:flex-row md:space-x-16 lg:space-x-20 xl:space-x-28 2xl:space-x-36 mt-16 md:mt-20 md:items-center text-black dark:text-white"
         v-if="country"
       >
         <img

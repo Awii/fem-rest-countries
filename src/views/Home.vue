@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen bg-dark-blue-dark">
+  <div
+    class="duration-300 min-h-screen bg-light-gray-very-light dark:bg-dark-blue-dark"
+  >
     <AppHeader />
 
     <div class="py-12 px-vw">

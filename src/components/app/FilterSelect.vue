@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="duration-300">
     <BarContainer class="h-14 w-48">
       <button
         type="button"
-        class="w-full h-full text-white text-sm flex flex-row items-center justify-between pl-6 pr-4 outline-none"
+        class="w-full h-full text-sm flex flex-row items-center justify-between pl-6 pr-4 outline-none"
         @click="() => (this.showDropdown = !this.showDropdown)"
         @focusout="() => (this.showDropdown = false)"
       >
