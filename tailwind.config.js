@@ -26,6 +26,9 @@ module.exports = {
       padding: {
         vw: "10vw",
       },
+      maxHeight: {
+        112: "28rem",
+      },
       gridTemplateColumns: {
         fill: "repeat(auto-fill, minmax(330px, 1fr))", // max-width including margin
       },

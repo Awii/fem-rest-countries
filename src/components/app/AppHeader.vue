@@ -5,10 +5,13 @@
         to="/"
         class="font-semibold md:text-xl lg:text-2xl p-2 -ml-2"
       >
-        <span @click="goHome">{{ title }}</span>
+        <span @click="() => this.$root.$emit('go-home')">{{ title }}</span>
       </router-link>
 
-      <button class="flex flex-row items-center p-2" @click="toggleDarkMode">
+      <button
+        class="flex flex-row items-center p-2 outline-none"
+        @click="toggleDarkMode"
+      >
         <fa-icon
           :icon="[isDarkMode ? 'fas' : 'far', 'moon']"
           class="mr-1.5 md:mr-2 lg:mr-2.5"
@@ -34,11 +37,6 @@ export default {
   methods: {
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode;
-    },
-
-    goHome() {
-      this.$emit("go-home");
-      this.$root.$emit("clear-search");
     },
   },
 };

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <BarContainer class="h-12 w-48">
+    <BarContainer class="h-14 w-48">
       <button
         type="button"
         class="w-full h-full text-white text-sm flex flex-row items-center justify-between pl-6 pr-4 outline-none"
-        @click="toggleDropdown"
-        @focusout="handleFocusOut"
+        @click="() => (this.showDropdown = !this.showDropdown)"
+        @focusout="() => (this.showDropdown = false)"
       >
-        <div>Filter by Region</div>
+        <div>{{ selectedRegion || "Filter by Region" }}</div>
 
         <fa-icon :icon="['fas', 'chevron-down']" size="sm" />
       </button>
@@ -29,7 +29,7 @@
             v-for="region in regions"
             :key="region"
             class="p-1"
-            @click="emitRegion(region, true)"
+            @click="emitRegion(region)"
           >
             {{ region }}
           </button>
@@ -50,22 +50,19 @@ export default {
   data() {
     return {
       showDropdown: false,
+      selectedRegion: null,
       regions: ["All", "Africa", "America", "Asia", "Europe", "Oceania"],
     };
   },
 
   methods: {
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown;
-    },
-
-    handleFocusOut() {
-      this.showDropdown = false;
-    },
-
-    emitRegion(region, isRegion) {
-      this.$emit("on-filter", region.toLowerCase(), isRegion);
-      this.$root.$emit("clear-search");
+    emitRegion(region) {
+      if (region == "All") {
+        this.selectedRegion = null;
+      } else {
+        this.selectedRegion = region;
+      }
+      this.$emit("on-filter", region.toLowerCase());
     },
   },
 };

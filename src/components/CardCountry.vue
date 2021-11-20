@@ -16,7 +16,7 @@
           <span class="font-semibold">Region:</span>
           {{ region }}
         </p>
-        <p v-if="capital">
+        <p v-if="capital && capital.length">
           <span class="font-semibold">Capital:</span>
           {{ capital.join(", ") }}
         </p>
