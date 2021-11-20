@@ -28,7 +28,7 @@
             type="button"
             v-for="region in regions"
             :key="region"
-            class="p-1"
+            class="py-1.5 pl-6 -ml-4 w-28 text-left"
             @click="emitRegion(region)"
           >
             {{ region }}
@@ -51,12 +51,14 @@ export default {
     return {
       showDropdown: false,
       selectedRegion: null,
+      clicked: null,
       regions: ["All", "Africa", "America", "Asia", "Europe", "Oceania"],
     };
   },
 
   methods: {
     emitRegion(region) {
+      this.clicked = true;
       if (region == "All") {
         this.selectedRegion = null;
       } else {
